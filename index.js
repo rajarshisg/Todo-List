@@ -3,6 +3,7 @@ const port = 8000; //port on which our server runs
 
 const path = require('path'); //requires the path library, needed for path.join()
 const db = require('./config/mongoose'); //setting up mongoose odm
+const Entry = require('./models/todo_entry'); //adding the entry collection schema
 
 
 const app = express(); //app has all the functionalities of express
