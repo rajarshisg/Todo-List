@@ -1,0 +1,208 @@
+/*Basic HTML Tags*/
+body{
+    margin : 0px;
+    padding : 0px;
+    font-family: 'Baloo Tammudu 2', cursive;
+}
+
+/*The Title Bar*/
+#title-bar{
+    height: 5rem;
+    width: 100%;
+    margin-top : -1.5rem;
+    padding-top: 0.3rem;
+    background: linear-gradient(to right, #ff512f, #dd2476);
+    text-align: center;
+    color: whitesmoke;
+}
+
+/*The input form*/
+#input-form{
+    margin-top: 1rem;
+    padding-left: 2rem;
+    padding-right: 2rem;
+    display : flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+/*Lables for various inputs*/
+#lable_description{
+    font-size: 1.17rem;
+}
+#lable_category{
+    font-size: 1.17rem;
+    margin-right: 44vw;
+
+}
+#lable_due_date{
+    font-size: 1.17rem;
+}
+/*End of lables*/
+
+/*Input form for description*/
+input[type="text"]{
+    width: 90vw;
+    height: 3rem;
+    border: none;
+    font-size: 1.1rem;
+    border-bottom: 1.5px solid black;
+}
+input[type="text"]::placeholder{
+    font-family: 'Baloo Tammudu 2', cursive;
+    font-size: 1.1rem;
+}
+input[type="text"]:focus{
+    outline: none;
+    font-family: 'Baloo Tammudu 2', cursive;
+    font-size: 1.1rem;
+}
+/*End of input form for description*/
+
+/*Select form for category*/
+select{
+    width: 40vw;
+    height: 2rem;
+    border: none;
+    margin-right: 10vw;
+    border-bottom: 1.5px solid black;
+}
+
+select:focus{
+    outline: none;
+}
+/*End of select form*/
+
+/*Date inout form*/
+input[type="date"]{
+    width: 40vw;
+    border: none;
+    border-bottom: 1.5px solid black;
+}
+
+input[type="date"]:focus{
+    outline: none;
+}
+/*End of date input form*/
+
+/*Submit Button*/
+button[type="submit"]{
+    height: 3rem;
+    width: 13vw;
+    background-color: #9B2335;
+    border: none;
+    margin-left: 41vw;
+    padding-top: 0.5rem;
+    margin-bottom: 2rem;
+    margin-top: 2rem;
+    color: white;
+    font-family: 'Baloo Tammudu 2', cursive;
+    font-size: large;
+    font-weight: bold;
+}
+/*End of input form*/
+
+/*Pending Tasks/Completed Tasks display tab*/
+#display-parent{
+    width: 100%;
+    margin-top: -0.6rem;
+    height: 3rem;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    margin-bottom: 2rem;
+}
+
+/*Tab 1 CSS*/
+.display-1{
+    width: 50%;
+    text-align: center;
+    padding-top: 0.7rem;
+    background-color: #34568B;
+    color: white;
+}
+/*Tab 2 CSS*/
+.display-2{
+    width: 50%;
+    text-align: center;
+    padding-top: 0.7rem;
+}
+
+/*Entry Card CSS*/
+.card{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    height: 4.5rem;
+    width: 90vw;
+    padding-top: 1rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+    background-color: rgb(235, 235, 235);
+    margin-bottom: 1.3rem;
+    padding-bottom: 0.5rem;
+}
+/*End of entry card*/
+
+/*Wrap class*/
+.wrap{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.wrap a{
+    margin-top: 1rem;
+    margin-right: 1rem;
+    color: black;
+    font-size: large;
+}
+
+.wrap a:hover{
+    color: red;
+    transition: all, 0.3s;
+}
+/*End of wrap*/
+
+/*Info class*/
+.info{
+    padding-left: 1rem;
+    display: flex;
+    flex-direction: column;
+}
+/*End of info class*/
+
+/*Desc Class*/
+.desc{
+    margin-top : -0.2rem;
+    margin-left: 1rem;
+    font-size: 1.2rem;
+    font-weight: 600;
+
+}
+/*End of desc class*/
+
+/*Date Class*/
+.date{
+    margin-top: -1rem;
+    margin-left: 1rem;
+    color: rgb(68, 68, 68)
+}
+/*End of Date Class
+
+/*Category Info class*/
+.category-info{
+    margin-top: 0.5rem;
+    height: 2.5rem;
+    width: 9vw;
+    text-align: center;
+    padding-top: 0.6rem;
+    background-color: #55B4B0;
+    border-radius: 0.5rem;
+    color: whitesmoke;
+    font-weight: bold;
+}
+/*End of category info class

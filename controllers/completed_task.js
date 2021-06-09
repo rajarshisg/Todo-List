@@ -1,9 +1,9 @@
 const Entry = require("../models/todo_entry"); //adding the entry collection schema
 
 module.exports = function(req, res){
-    //fetching the uncompleted tasks
+    //fetching the completed tasks
     Entry.find({
-        completed: false
+        completed: true
     }, function(err, entry){
         if(err){
             console.log('Error in fetching data from database!');
@@ -11,7 +11,7 @@ module.exports = function(req, res){
         return res.render('home', {
             //sending all the entries and current page demarcation to ejs
             tasks : entry,
-            curr_url : 'home'
-        })
-    })
+            curr_url : 'not-home'
+        });
+    });
 }

@@ -1,10 +1,123 @@
 <!DOCTYPE html>
+<!--Begining of html-->
 <html>
+    <!--Begining of head-->
     <head>
+        <!--Title of the website-->
         <title>TODO List App</title>
+        <!--Linking external css-->
+        <link rel="stylesheet" type="text/css" href="/css/style.css">
+        <!--Adding font awesome icons-->
+        <script src="https://kit.fontawesome.com/6f0f83005a.js" crossorigin="anonymous"></script>
+        <!--Adding google fonts-->
+        <link rel="preconnect" href="https://fonts.gstatic.com">
+        <link href="https://fonts.googleapis.com/css2?family=Baloo+Tammudu+2&display=swap" rel="stylesheet">
     </head>
-
+    <!--End of head-->
+    
+    <!--Begining of body-->
     <body>
-        <h1>Todo List</h1>
+        <!--Begining of Title Bar-->
+        <div id="title-bar">
+            <h1>TODO List</h1>
+        </div>
+        <!--End of Title Bar-->
+        
+        <!--Begining of input form-->
+        <div id="input-form">
+            <!--Begining of form-->
+            <form action="/create-entry" method="POST" required>
+                <lable id="lable_description" for="description"><b>Description<b></lable>
+                <!--Taking the description as input-->
+                <input type="text" id="description" name="description" placeholder="Add a description of the task" required>
+                <br/>
+                <br/>
+                <lable id="lable_category" for="category"><b>Category</b></lable>
+                <lable id="lable_due_date" for="due_date"><b>Due Date</b></lable>
+                <br/>
+                <!--Selecting the category of task-->
+                <select id="category" name="category" placeholder="Category" required>
+                    <option value="Personal">Personal</option>
+                    <option value="Work">Work</option>
+                    <option value="Education">Education</option>
+                    <option value="Others">Others</option>
+                </select>
+                <!--Setting up the due date of the task-->
+                <input type="date" id="due_date" name="due_date" placeholder="Due Date" required>
+                <br/>
+                <!--Submit button-->
+                <button type="submit"><i class="fa fa-plus" aria-hidden="true"></i>&nbsp;&nbsp;&nbsp;&nbsp;Add Task</button>
+            </form>
+            <!--End of form-->
+        </div>
+        <!--End of input form-->
+        <hr/>
+        <!--Begining of all tasks-->
+        <div id="all-tasks">
+            <!--Begining of display parent-->
+            <div id="display-parent">
+                <% if(curr_url=='home') { %>
+                <div id="d-1" class="display-1"><b>Pending Tasks</b></div>
+                <div id="d-2" class="display-2"><b>Completed Tasks</b></div>
+                <% }else { %>
+                <div id="d-1" class="display-2"><b>Pending Tasks</b></div>
+                <div id="d-2" class="display-1"><b>Completed Tasks</b></div>
+                <% } %>
+            </div>
+            <!--End of display parent-->
+            <!--Begining of ul-->
+            <ul type="none">
+                <% for(let i of tasks){ %>
+                    <!--Begining of li-->
+                    <li>
+                        <!--Begining of card-->
+                        <div class="card">
+                            <!--Begining of wrap-->
+                            <div class="wrap">
+                                <% if(curr_url=='home') { %>
+                                <!--Marking the entry as completed using query param-->
+                                <a href="/mark-completed?id=<%= i._id %>"><i class="fas fa-trash"></i></a>
+                                <% }else { %>
+                                <!--Deleting the entry using query param-->
+                                <a href="/delete-entry?id=<%= i._id %>"><i class="fas fa-trash"></i></a>
+                                <% } %>
+                                <!--Begining of info-->
+                                <div id="info">
+                                    <!--Displaying the description-->
+                                    <p class="desc"><%= i.description %></p>
+                                    
+                                    <!--Formatting the date-->
+                                    <% let months = ["January", "February", "March", 
+                                                      "April", "May", "June",
+                                                    "July", "August", "September", 
+                                                    "October", "November", "December"];
+                                        let dd = i.due_date.getDate();
+                                        let mm = months[i.due_date.getMonth()];
+                                        let yyyy = i.due_date.getFullYear();
+                                    %>
+                                    <!--Displaying the date-->
+                                    <p class="date"><i class="fa fa-calendar" aria-hidden="true"></i>&nbsp;&nbsp;<%="Due, "+dd+" "+mm+", "+yyyy %></p>
+                                </div>
+                                <!--End of info-->
+                            </div>
+                            <!--End of wrap-->
+                            <!--Begining of category info-->
+                            <div class="category-info">
+                                <%= i.category %>
+                            </div>
+                            <!--End of category info-->
+                        </div>
+                        <!--End of card-->
+                    </li>
+                    <!--End of li-->
+                    <% } %>
+            </ul>
+            <!--End of ul-->
+        </div>
+        <!--ENd id all tasks-->
+        <!--Adding JavaScript-->
+        <script type="text/javascript" src="/js/script.js"></script>
     </body>
+    <!--End of body-->
 </html>
+<!--End of html-->
